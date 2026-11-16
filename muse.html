@@ -3,81 +3,82 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>アクションプラン</title>
+<title>Muse はじめてのアクションプラン</title>
 <style>
 :root{color-scheme:light;--ink:#20252b;--green:#238636;--paper:#fffdf7}
 *{box-sizing:border-box}
 body{margin:0;background:#f3f1e9;color:var(--ink);font-family:system-ui,-apple-system,"Noto Sans JP",sans-serif}
-main{width:min(100%,1000px);margin:auto;padding:clamp(20px,5vw,48px) 18px 40px}
-header{text-align:center;margin-bottom:26px}
-h1{font-size:clamp(2rem,6vw,3.5rem);line-height:1.15;margin:0 0 12px}
-.lead{font-size:clamp(1rem,2.5vw,1.25rem);margin:0;color:#555}
-.comic{display:flex;align-items:center;gap:0;overflow-x:auto;overscroll-behavior-x:contain;scroll-snap-type:x mandatory;padding:10px 8px 20px;scrollbar-width:thin}
-.panel{flex:0 0 min(78vw,620px);background:var(--paper);border:3px solid var(--ink);border-radius:14px;overflow:hidden;box-shadow:4px 4px 0 var(--ink);scroll-snap-align:center}
-.panel svg{display:block;width:100%;height:auto}
-.caption{font-weight:800;text-align:center;font-size:clamp(1rem,2.5vw,1.25rem);padding:10px 8px 14px;min-height:3.5em}
-.flow-arrow{flex:0 0 64px;display:grid;place-items:center;color:var(--green);font-size:2.8rem;font-weight:900;line-height:1;border:0;background:transparent;cursor:pointer;animation:blink 1.15s infinite}
-.panel{cursor:pointer;transition:transform .18s,box-shadow .18s;animation:panelBlink 1.8s infinite}.panel:focus-visible,.flow-arrow:focus-visible{outline:4px solid #f0b429;outline-offset:5px}.panel:hover{transform:translateY(-4px);box-shadow:6px 8px 0 var(--ink)}@keyframes blink{0%,100%{opacity:1}50%{opacity:.25}}@keyframes panelBlink{0%,100%{border-color:var(--ink)}50%{border-color:var(--green)}}
-@media(max-width:560px){.panel{flex-basis:84vw}.flow-arrow{flex-basis:42px;font-size:2rem}}
+main{width:min(100%,1100px);margin:auto;padding:24px 16px 42px}
+h1{text-align:center;font-size:clamp(1.8rem,5vw,3rem);margin:0 0 26px}
+.action{margin:0 0 30px}
+.action-head{display:flex;gap:14px;align-items:baseline;flex-wrap:wrap;margin:0 4px 10px}
+.action-head h2{font-size:1.2rem;margin:0}
+.purpose{font-size:.98rem;font-weight:700;margin:0}
+.strip{display:flex;align-items:center;overflow-x:auto;gap:0;padding:8px 8px 16px;scroll-snap-type:x mandatory;overscroll-behavior-x:contain;scrollbar-width:thin}
+.panel{flex:0 0 min(68vw,250px);min-height:190px;background:var(--paper);border:3px solid var(--ink);border-radius:13px;box-shadow:4px 4px 0 var(--ink);padding:16px 12px;display:flex;flex-direction:column;justify-content:space-between;scroll-snap-align:center;cursor:pointer;animation:panelBlink 1.8s infinite;transition:transform .18s}
+.panel:hover{transform:translateY(-3px)}
+.panel:focus-visible,.arrow:focus-visible{outline:4px solid #e0a800;outline-offset:4px}
+.step{font-size:.85rem;font-weight:900;color:var(--green)}
+.action-text{font-size:1.1rem;font-weight:850;line-height:1.5;margin:12px 0}
+.symbol{font-size:2.2rem;line-height:1}
+.arrow{flex:0 0 48px;border:0;background:transparent;color:var(--green);font-size:2.5rem;font-weight:900;cursor:pointer;animation:blink 1.1s infinite}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.22}}
+@keyframes panelBlink{0%,100%{border-color:var(--ink)}50%{border-color:var(--green)}}
+@media(max-width:560px){.panel{flex-basis:72vw;min-height:170px}.arrow{flex-basis:34px;font-size:2rem}.action-head{display:block}.purpose{margin-top:4px}}
+@media(prefers-reduced-motion:reduce){.panel,.arrow{animation:none;transition:none}}
 </style>
 </head>
 <body>
 <main>
-<header>
-<h1>アクションプラン</h1>
+<h1>Muse はじめてのアクションプラン</h1>
 
-</header>
-<section class="comic" aria-label="3つのアクションプラン">
-<article class="panel">
-<svg viewBox="0 0 440 250" role="img" aria-label="Museをはじめる">
-<rect width="440" height="250" fill="#e9f2ff"/>
-<rect x="55" y="30" width="330" height="190" rx="14" fill="#fff" stroke="#20252b" stroke-width="6"/>
-<rect x="55" y="30" width="330" height="38" rx="12" fill="#e8eaf0"/>
-<circle cx="78" cy="49" r="6" fill="#f28b82"/><circle cx="98" cy="49" r="6" fill="#fbbc04"/><circle cx="118" cy="49" r="6" fill="#81c995"/>
-<rect x="82" y="91" width="110" height="18" rx="8" fill="#dce4e8"/>
-<rect x="82" y="123" width="276" height="60" rx="9" fill="#eef6ff" stroke="#238636" stroke-width="4"/>
-<circle cx="115" cy="153" r="16" fill="#238636"/>
-<path d="M108 153h14m-7-7v14" stroke="#fff" stroke-width="4" stroke-linecap="round"/>
-<text x="145" y="160" font-size="21" font-weight="800" fill="#20252b">Connectors</text>
-</svg>
-<div class="caption"><strong>Action 1</strong><br>目的：Museで制作を始める<br>行動：Museを開く</div>
-</article>
-<button class="flow-arrow" type="button" aria-label="次のコマへ">→</button>
-<article class="panel">
-<svg viewBox="0 0 440 250" role="img" aria-label="GitHubを連携する">
-<rect width="440" height="250" fill="#fff0dc"/>
-<rect x="62" y="27" width="316" height="196" rx="14" fill="#fff" stroke="#20252b" stroke-width="6"/>
-<text x="220" y="66" text-anchor="middle" font-size="23" font-weight="800" fill="#20252b">Connect a service</text>
-<rect x="94" y="91" width="252" height="90" rx="12" fill="#f6f8fa" stroke="#238636" stroke-width="4"/>
-<circle cx="139" cy="136" r="25" fill="#20252b"/>
-<path d="M126 138c-5-12 3-22 13-22s18 10 13 22l-3 14h-20z" fill="#fff"/>
-<text x="180" y="144" font-size="25" font-weight="900" fill="#20252b">GitHub</text>
-<path d="M315 119l10 10-10 10" fill="none" stroke="#238636" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
-</svg>
-<div class="caption"><strong>Action 2</strong><br>目的：ゲームを保存・管理する<br>行動：GitHubを連携する</div>
-</article>
-<button class="flow-arrow" type="button" aria-label="次のコマへ">→</button>
-<article class="panel">
-<svg viewBox="0 0 440 250" role="img" aria-label="ゲームをつくってもらう">
-<rect width="440" height="250" fill="#e9f7e9"/>
-<rect x="64" y="27" width="312" height="196" rx="14" fill="#fff" stroke="#20252b" stroke-width="6"/>
-<text x="220" y="69" text-anchor="middle" font-size="22" font-weight="800" fill="#20252b">Authorize access</text>
-<rect x="105" y="91" width="230" height="48" rx="8" fill="#f1f3f4"/>
-<text x="220" y="121" text-anchor="middle" font-size="17" fill="#20252b">Muse ↔ GitHub</text>
-<rect x="125" y="158" width="190" height="42" rx="21" fill="#238636"/>
-<text x="220" y="185" text-anchor="middle" font-size="17" font-weight="800" fill="#fff">Authorize</text>
-</svg>
-<div class="caption"><strong>Action 3</strong><br>目的：遊べるゲームを完成させる<br>行動：Museにゲーム制作を依頼する</div>
-</article>
-
+<section class="action" aria-labelledby="action1">
+<div class="action-head"><h2 id="action1">Action 1</h2><p class="purpose">目的：Museで制作を始める</p></div>
+<div class="strip" aria-label="Action 1 の4コマ">
+<article class="panel" tabindex="0"><span class="step">1 / 4</span><div class="action-text">Museを開く</div><span class="symbol">🌱</span></article>
+<button class="arrow" type="button" aria-label="次のコマへ">→</button>
+<article class="panel" tabindex="0"><span class="step">2 / 4</span><div class="action-text">アカウントでログインする</div><span class="symbol">🔑</span></article>
+<button class="arrow" type="button" aria-label="次のコマへ">→</button>
+<article class="panel" tabindex="0"><span class="step">3 / 4</span><div class="action-text">新しいチャットを開く</div><span class="symbol">💬</span></article>
+<button class="arrow" type="button" aria-label="次のコマへ">→</button>
+<article class="panel" tabindex="0"><span class="step">4 / 4</span><div class="action-text">Museに話しかける</div><span class="symbol">✨</span></article>
+</div>
 </section>
 
+<section class="action" aria-labelledby="action2">
+<div class="action-head"><h2 id="action2">Action 2</h2><p class="purpose">目的：GitHubと連携する</p></div>
+<div class="strip" aria-label="Action 2 の4コマ">
+<article class="panel" tabindex="0"><span class="step">1 / 4</span><div class="action-text">MuseのConnectorsを開く</div><span class="symbol">🔌</span></article>
+<button class="arrow" type="button" aria-label="次のコマへ">→</button>
+<article class="panel" tabindex="0"><span class="step">2 / 4</span><div class="action-text">GitHubを選ぶ</div><span class="symbol">🐙</span></article>
+<button class="arrow" type="button" aria-label="次のコマへ">→</button>
+<article class="panel" tabindex="0"><span class="step">3 / 4</span><div class="action-text">GitHubで接続を許可する</div><span class="symbol">✅</span></article>
+<button class="arrow" type="button" aria-label="次のコマへ">→</button>
+<article class="panel" tabindex="0"><span class="step">4 / 4</span><div class="action-text">接続済みを確認する</div><span class="symbol">🔗</span></article>
+</div>
+</section>
+
+<section class="action" aria-labelledby="action3">
+<div class="action-head"><h2 id="action3">Action 3</h2><p class="purpose">目的：遊べるゲームを完成させる</p></div>
+<div class="strip" aria-label="Action 3 の4コマ">
+<article class="panel" tabindex="0"><span class="step">1 / 4</span><div class="action-text">作りたいゲームを伝える</div><span class="symbol">🎮</span></article>
+<button class="arrow" type="button" aria-label="次のコマへ">→</button>
+<article class="panel" tabindex="0"><span class="step">2 / 4</span><div class="action-text">ルールと操作を決める</div><span class="symbol">🕹️</span></article>
+<button class="arrow" type="button" aria-label="次のコマへ">→</button>
+<article class="panel" tabindex="0"><span class="step">3 / 4</span><div class="action-text">Museにゲーム制作を依頼する</div><span class="symbol">🛠️</span></article>
+<button class="arrow" type="button" aria-label="次のコマへ">→</button>
+<article class="panel" tabindex="0"><span class="step">4 / 4</span><div class="action-text">ゲームを動かして確認する</div><span class="symbol">🚀</span></article>
+</div>
+</section>
 </main>
 <script>
-const steps=[...document.querySelectorAll(".panel")];
-function activate(i){if(i<steps.length-1){steps[i+1].scrollIntoView({behavior:"smooth",block:"nearest",inline:"center"});}else{steps[i].classList.toggle("done");}}
-steps.forEach((step,i)=>{step.tabIndex=0;step.setAttribute("role","button");step.setAttribute("aria-label",`Action ${i+1}を選択`);step.addEventListener("click",()=>activate(i));step.addEventListener("keydown",e=>{if(e.key==="Enter"||e.key===" "){e.preventDefault();activate(i);}});});
-document.querySelectorAll(".flow-arrow").forEach((arrow,i)=>arrow.addEventListener("click",()=>activate(i)));
+document.querySelectorAll(".action").forEach(section=>{
+ const panels=[...section.querySelectorAll(".panel")];
+ const arrows=[...section.querySelectorAll(".arrow")];
+ function go(i){if(panels[i+1])panels[i+1].scrollIntoView({behavior:"smooth",block:"nearest",inline:"center"});}
+ arrows.forEach((b,i)=>b.addEventListener("click",()=>go(i)));
+ panels.forEach((p,i)=>{p.setAttribute("role","button");p.setAttribute("aria-label",p.querySelector(".action-text").textContent+"。クリックで次へ");p.addEventListener("click",()=>go(i));p.addEventListener("keydown",e=>{if(e.key==="Enter"||e.key===" "){e.preventDefault();go(i);}});});
+});
 </script>
 </body>
 </html>
