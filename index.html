@@ -1,31 +1,75 @@
 <!doctype html>
 <html lang="ja">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>GitHub、はじめの一歩。</title>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>はじめてのものづくり｜GitHub × Muse</title>
 <style>
+
 :root{color-scheme:light;--ink:#20252b;--green:#238636;--paper:#fffdf7;--line:#d9d4c8}
 *{box-sizing:border-box}body{margin:0;background:#f3f1e9;color:var(--ink);font-family:system-ui,-apple-system,"Noto Sans JP",sans-serif}
 main{width:min(960px,100%);margin:auto;padding:clamp(20px,5vw,48px) 18px 40px}
 header{text-align:center;margin-bottom:24px}h1{font-size:clamp(2rem,6vw,3.7rem);line-height:1.15;margin:0 0 12px;letter-spacing:.02em}
 .lead{font-size:clamp(1rem,2.5vw,1.3rem);margin:0;color:#555}
-.comic{display:flex;align-items:center;gap:0;overflow-x:auto;overscroll-behavior-x:contain;scroll-snap-type:x mandatory;padding:10px 8px 18px;scrollbar-width:thin}
-.panel{flex:0 0 min(78vw,620px);background:var(--paper);border:3px solid var(--ink);border-radius:14px;overflow:hidden;box-shadow:4px 4px 0 var(--ink);scroll-snap-align:center}.flow-arrow{flex:0 0 64px;display:grid;place-items:center;color:var(--green);font-size:2.8rem;font-weight:900;line-height:1;text-shadow:1px 2px 0 #c8dfcb}
-.panel svg{display:block;width:100%;height:auto}.caption{font-weight:800;text-align:center;font-size:clamp(1rem,2.5vw,1.25rem);padding:10px 8px 14px;min-height:3.5em}
-.cta{text-align:center;margin:28px auto 12px}.button{display:inline-block;background:var(--green);color:white;text-decoration:none;font-weight:800;font-size:1.2rem;padding:15px 28px;border-radius:999px;box-shadow:0 4px 0 #176329}.button:hover{filter:brightness(1.08);transform:translateY(-1px)}
-.note{text-align:center;color:#666;font-size:.9rem;line-height:1.7;margin:18px auto 0;max-width:650px}
-@media(max-width:560px){.panel{flex-basis:84vw}.flow-arrow{flex-basis:42px;font-size:2rem}.panel svg{max-height:260px}}
+.signup-comic{display:flex;align-items:center;gap:0;overflow-x:auto;overscroll-behavior-x:contain;scroll-snap-type:x mandatory;padding:10px 8px 18px;scrollbar-width:thin}
+.signup-panel{flex:0 0 min(78vw,620px);background:var(--paper);border:3px solid var(--ink);border-radius:14px;overflow:hidden;box-shadow:4px 4px 0 var(--ink);scroll-snap-align:center}.signup-flow-arrow{flex:0 0 64px;display:grid;place-items:center;color:var(--green);font-size:2.8rem;font-weight:900;line-height:1;text-shadow:1px 2px 0 #c8dfcb}
+.signup-panel svg{display:block;width:100%;height:auto}.signup-caption{font-weight:800;text-align:center;font-size:clamp(1rem,2.5vw,1.25rem);padding:10px 8px 14px;min-height:3.5em}
+.signup-cta{text-align:center;margin:28px auto 12px}.signup-button{display:inline-block;background:var(--green);color:white;text-decoration:none;font-weight:800;font-size:1.2rem;padding:15px 28px;border-radius:999px;box-shadow:0 4px 0 #176329}.signup-button:hover{filter:brightness(1.08);transform:translateY(-1px)}
+.signup-note{text-align:center;color:#666;font-size:.9rem;line-height:1.7;margin:18px auto 0;max-width:650px}
+@media(max-width:560px){.signup-panel{flex-basis:84vw}.signup-flow-arrow{flex-basis:42px;font-size:2rem}.signup-panel svg{max-height:260px}}
+
+
+:root{--ink:#20252b;--green:#238636;--paper:#fffdf7}
+*{box-sizing:border-box}body{margin:0;background:#f3f1e9;color:var(--ink);font-family:system-ui,-apple-system,"Noto Sans JP",sans-serif}
+main{max-width:1100px;margin:auto;padding:22px 14px 44px}h1{text-align:center;font-size:clamp(1.7rem,5vw,2.8rem);margin:0 0 26px}
+.action{margin:0 0 34px}.action-head{display:flex;align-items:baseline;gap:14px;flex-wrap:wrap;margin:0 4px 10px}.action-head h2{margin:0;font-size:1.15rem}.purpose{margin:0;font-weight:750}
+.strip{display:flex;align-items:center;overflow-x:auto;gap:0;padding:8px 8px 16px;scroll-snap-type:x mandatory;scrollbar-width:thin;overscroll-behavior-x:contain}
+.panel{flex:0 0 min(68vw,270px);border:3px solid var(--ink);border-radius:14px;overflow:hidden;background:var(--paper);box-shadow:4px 4px 0 var(--ink);scroll-snap-align:center;cursor:pointer;animation:framePulse 2s infinite}
+.panel svg{display:block;width:100%;height:auto}.panel:focus-visible,.arrow:focus-visible{outline:4px solid #e4aa18;outline-offset:4px}
+.arrow{flex:0 0 48px;border:0;background:none;color:var(--green);font-size:2.5rem;font-weight:900;cursor:pointer;animation:arrowBlink 1s infinite}
+.scene-bg{fill:#eaf2ff}.burst{fill:#ffe16b;stroke:#20252b;stroke-width:3}.person{transform-box:fill-box;transform-origin:center bottom;animation:hop 1.6s ease-in-out infinite}.bubble{transform-box:fill-box;transform-origin:center;animation:pop .75s cubic-bezier(.2,1.5,.5,1) both}.spark{animation:twinkle 1s ease-in-out infinite alternate}.speed{stroke:#20252b;stroke-width:4;stroke-linecap:round;animation:dash .7s ease-in-out infinite alternate}
+.svg-step{font-size:15px;font-weight:900;fill:#238636}.svg-action{font-size:20px;font-weight:900;fill:#20252b}.bubble-text{font-size:17px;font-weight:900;fill:#20252b}.impact{font-size:25px;font-weight:1000;fill:#e34b35;stroke:#fff;stroke-width:4px;paint-order:stroke}
+@keyframes hop{0%,100%{transform:translateY(0) rotate(0)}45%{transform:translateY(-8px) rotate(-4deg)}}
+@keyframes pop{0%{opacity:0;transform:scale(.45)}100%{opacity:1;transform:scale(1)}}
+@keyframes twinkle{from{opacity:.35;transform:scale(.8)}to{opacity:1;transform:scale(1.15)}}
+@keyframes dash{from{opacity:.25;transform:translateX(-3px)}to{opacity:1;transform:translateX(3px)}}
+@keyframes arrowBlink{0%,100%{opacity:1}50%{opacity:.2}}
+@keyframes framePulse{0%,100%{border-color:var(--ink)}50%{border-color:var(--green)}}
+@media(max-width:560px){.panel{flex-basis:76vw}.arrow{flex-basis:34px;font-size:2rem}.action-head{display:block}.purpose{margin-top:4px}}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;scroll-behavior:auto!important}}
+
+body{padding:0}
+.site-nav{display:flex;justify-content:center;gap:10px;flex-wrap:wrap;padding:16px 12px 0}
+.site-nav button{border:2px solid #20252b;border-radius:999px;background:#fffdf7;color:#20252b;padding:10px 18px;font:inherit;font-weight:800;cursor:pointer}
+.site-nav button[aria-selected="true"]{background:#238636;color:#fff;border-color:#238636}
+.view[hidden]{display:none}
+#signup-view main{width:min(960px,100%);margin:auto;padding:clamp(20px,5vw,48px) 18px 40px}
+#signup-view header{text-align:center;margin-bottom:24px}
+#signup-view h1{font-size:clamp(2rem,6vw,3.7rem);line-height:1.15;margin:0 0 12px;letter-spacing:.02em}
+#signup-view .lead{font-size:clamp(1rem,2.5vw,1.3rem);margin:0;color:#555}
+#signup-view .signup-comic{display:flex;align-items:center;gap:0;overflow-x:auto;overscroll-behavior-x:contain;scroll-snap-type:x mandatory;padding:10px 8px 18px;scrollbar-width:thin}
+#signup-view .signup-panel{flex:0 0 min(78vw,620px);background:#fffdf7;border:3px solid #20252b;border-radius:14px;overflow:hidden;box-shadow:4px 4px 0 #20252b;scroll-snap-align:center}
+#signup-view .signup-flow-arrow{flex:0 0 64px;display:grid;place-items:center;color:#238636;font-size:2.8rem;font-weight:900;line-height:1}
+#signup-view .signup-panel svg{display:block;width:100%;height:auto}
+#signup-view .signup-caption{font-weight:800;text-align:center;font-size:clamp(1rem,2.5vw,1.25rem);padding:10px 8px 14px;min-height:3.5em}
+#signup-view .signup-cta{text-align:center;margin:28px auto 12px}
+#signup-view .signup-button{display:inline-block;background:#238636;color:white;text-decoration:none;font-weight:800;font-size:1.2rem;padding:15px 28px;border-radius:999px;box-shadow:0 4px 0 #176329}
+#signup-view .signup-note{text-align:center;color:#666;font-size:.9rem;line-height:1.7;margin:18px auto 0;max-width:650px}
+@media(max-width:560px){#signup-view .signup-panel{flex-basis:84vw}#signup-view .signup-flow-arrow{flex-basis:42px;font-size:2rem}#signup-view .signup-panel svg{max-height:260px}}
 </style>
 </head>
 <body>
+<nav class="site-nav" aria-label="ガイド切り替え">
+<button type="button" data-view="signup" aria-selected="true">① GitHubをはじめる</button>
+<button type="button" data-view="muse" aria-selected="false">② Museでつくる</button>
+</nav>
+<section id="signup-view" class="view">
 <main>
 <header>
 <h1>GitHub、はじめの一歩。</h1>
 <p class="lead">むずかしそう？ まずはリンクを開いてみよう！</p>
 </header>
-<section class="comic" aria-label="GitHubを始める4コママンガ">
-<article class="panel">
+<section class="signup-comic" aria-label="GitHubを始める4コママンガ">
+<article class="signup-panel">
 <svg viewBox="0 0 440 250" role="img" aria-label="パソコンでGitHubのリンクを開く">
 <rect width="440" height="250" fill="#e9f2ff"/><circle cx="365" cy="42" r="24" fill="#ffd76a"/>
 <rect x="80" y="42" width="280" height="160" rx="12" fill="#fff" stroke="#20252b" stroke-width="7"/>
@@ -34,10 +78,10 @@ header{text-align:center;margin-bottom:24px}h1{font-size:clamp(2rem,6vw,3.7rem);
 <path d="M65 213h310l-22 16H87z" fill="#b9c8dc" stroke="#20252b" stroke-width="5"/>
 <path d="M365 112l24 15-24 15" fill="none" stroke="#238636" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
 </svg>
-<div class="caption">① リンクをポン！<br>GitHubのページを開こう</div>
+<div class="signup-caption">① リンクをポン！<br>GitHubのページを開こう</div>
 </article>
-<div class="flow-arrow" aria-hidden="true">→</div>
-<article class="panel">
+<div class="signup-flow-arrow" aria-hidden="true">→</div>
+<article class="signup-panel">
 <svg viewBox="0 0 440 250" role="img" aria-label="ユーザー名を考えて入力する">
 <rect width="440" height="250" fill="#fff0dc"/><path d="M45 45q0-18 18-18h314q18 0 18 18v145q0 18-18 18H63q-18 0-18-18z" fill="#fff" stroke="#20252b" stroke-width="6"/>
 <text x="220" y="77" font-size="22" font-weight="800" text-anchor="middle" fill="#20252b">Choose a username</text>
@@ -46,10 +90,10 @@ header{text-align:center;margin-bottom:24px}h1{font-size:clamp(2rem,6vw,3.7rem);
 <path d="M92 171q0-10 10-10h236q10 0 10 10" fill="none" stroke="#d9d4c8" stroke-width="4"/>
 <path d="M365 35l13 13 27-31" fill="none" stroke="#238636" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/>
 </svg>
-<div class="caption">② ユーザー名を書こう！<br>自分の名前を決めるよ</div>
+<div class="signup-caption">② ユーザー名を書こう！<br>自分の名前を決めるよ</div>
 </article>
-<div class="flow-arrow" aria-hidden="true">→</div>
-<article class="panel">
+<div class="signup-flow-arrow" aria-hidden="true">→</div>
+<article class="signup-panel">
 <svg viewBox="0 0 440 250" role="img" aria-label="画面の案内にそって登録を進める">
 <rect width="440" height="250" fill="#e9f7e9"/><rect x="76" y="25" width="288" height="198" rx="13" fill="#fff" stroke="#20252b" stroke-width="6"/>
 <text x="220" y="61" font-size="21" font-weight="800" text-anchor="middle" fill="#20252b">Almost there!</text>
@@ -58,21 +102,53 @@ header{text-align:center;margin-bottom:24px}h1{font-size:clamp(2rem,6vw,3.7rem);
 <rect x="143" y="177" width="154" height="30" rx="15" fill="#238636"/><text x="220" y="198" text-anchor="middle" font-size="15" font-weight="800" fill="#fff">Continue</text>
 <path d="M35 110q25-35 50 0q-25 35-50 0" fill="#ffd76a" stroke="#20252b" stroke-width="4"/>
 </svg>
-<div class="caption">③ あとは画面の案内どおり<br>必要な項目を入力するだけ</div>
+<div class="signup-caption">③ あとは画面の案内どおり<br>必要な項目を入力するだけ</div>
 </article>
-<div class="flow-arrow" aria-hidden="true">→</div>
-<article class="panel">
+<div class="signup-flow-arrow" aria-hidden="true">→</div>
+<article class="signup-panel">
 <svg viewBox="0 0 440 250" role="img" aria-label="登録ができてうれしい">
 <rect width="440" height="250" fill="#f1eaff"/><path d="M220 35l14 34 37-13-13 37 34 14-34 14 13 37-37-13-14 34-14-34-37 13 13-37-34-14 34-14-13-37 37 13z" fill="#ffd76a" stroke="#20252b" stroke-width="5"/>
 <circle cx="220" cy="119" r="53" fill="#238636"/><path d="M191 119l20 20 39-43" fill="none" stroke="#fff" stroke-width="11" stroke-linecap="round" stroke-linejoin="round"/>
 <path d="M80 70l12 18 21-4-12 18 11 18-21-5-13 17-1-22-20-9 20-8zM350 160l10 15 18-3-10 15 9 16-18-4-11 14-1-18-17-8 17-7z" fill="#ffbf69" stroke="#20252b" stroke-width="3"/>
 <text x="220" y="224" font-size="22" font-weight="900" text-anchor="middle" fill="#20252b">WELCOME TO GITHUB!</text>
 </svg>
-<div class="caption">④ できた！🎉<br>これでGitHubデビュー</div>
+<div class="signup-caption">④ できた！🎉<br>これでGitHubデビュー</div>
 </article>
 </section>
-<div class="cta"><a class="button" href="https://github.com/signup" target="_blank" rel="noopener">GitHubをはじめる →</a></div>
-<p class="note">ユーザー名を決めて入力するところからスタート。登録ではメールアドレスやパスワードなども必要です。小学生は年齢条件を確認して、保護者と一緒に進めよう。</p>
+<div class="signup-cta"><a class="signup-button" href="https://github.com/signup" target="_blank" rel="noopener">GitHubをはじめる →</a></div>
+<p class="signup-note">ユーザー名を決めて入力するところからスタート。登録ではメールアドレスやパスワードなども必要です。小学生は年齢条件を確認して、保護者と一緒に進めよう。</p>
 </main>
-</body>
-</html>
+</section>
+<section id="muse-view" class="view" hidden>
+<h1>Muse はじめてのアクションプラン</h1><div id="journey"></div>
+</section>
+<script>
+
+const plans=[
+ {title:"Action 1",purpose:"目的：Museで制作を始める",steps:[
+  ["Museを開く","さあ、はじめよう！","OPEN!","🌱"],
+  ["アカウントでログインする","ログインできた！","LOGIN!","🔑"],
+  ["新しいチャットを開く","ここから相談！","CHAT!","💬"],
+  ["Museに話しかける","Muse、こんにちは！","HELLO!","✨"]]},
+ {title:"Action 2",purpose:"目的：GitHubと連携する",steps:[
+  ["MuseのConnectorsを開く","連携設定へ！","CONNECT!","🔌"],
+  ["GitHubを選ぶ","GitHubを発見！","GITHUB!","🐙"],
+  ["GitHubで接続を許可する","接続を許可！","AUTHORIZE!","✅"],
+  ["接続済みを確認する","つながった！","LINKED!","🔗"]]},
+ {title:"Action 3",purpose:"目的：遊べるゲームを完成させる",steps:[
+  ["作りたいゲームを伝える","こんなゲームがほしい！","IDEA!","🎮"],
+  ["ルールと操作を決める","ルールはこれだ！","RULES!","🕹️"],
+  ["Museにゲーム制作を依頼する","ゲームを作って！","BUILD!","🛠️"],
+  ["ゲームを動かして確認する","動いた！遊んでみよう！","PLAY!","🚀"]]}
+];
+const root=document.getElementById("journey");
+root.innerHTML=plans.map((plan,pi)=>'<section class="action"><div class="action-head"><h2>'+plan.title+'</h2><p class="purpose">'+plan.purpose+'</p></div><div class="strip" aria-label="'+plan.title+' 4コマ">'+plan.steps.map((step,i)=>'<article class="panel" tabindex="0" role="button" aria-label="'+step[0]+'。クリックで次へ"><svg viewBox="0 0 320 230" role="img" aria-label="'+step[0]+'"><rect width="320" height="230" class="scene-bg"/><path class="burst" d="M18 18l18 5 12-15 8 19 20-1-12 16 11 18-21-3-9 18-7-19-21 1 12-17z"/><path class="speed" d="M24 150h48M18 166h34M254 178h42"/><g class="person"><circle cx="158" cy="133" r="35" fill="#ffd6b5" stroke="#20252b" stroke-width="4"/><path d="M126 126q5-43 42-32 20 7 23 31-20-14-39-10-13 2-26 11" fill="#303747"/><circle cx="146" cy="133" r="4" fill="#20252b"/><circle cx="170" cy="133" r="4" fill="#20252b"/><path d="M149 149q10 9 20 0" fill="none" stroke="#20252b" stroke-width="3" stroke-linecap="round"/><path d="M130 169q28-18 56 0l12 49h-80z" fill="'+(pi===1?'#8ec5ff':pi===2?'#ff9d80':'#9bd7a5')+'" stroke="#20252b" stroke-width="4"/></g><g class="bubble"><path d="M190 22h111q10 0 10 10v47q0 10-10 10h-48l-18 17 3-17h-48q-10 0-10-10V32q0-10 10-10" fill="#fff" stroke="#20252b" stroke-width="3"/><text x="246" y="54" text-anchor="middle" class="bubble-text">'+step[1]+'</text></g><text x="18" y="215" class="svg-step">'+(i+1)+' / 4</text><text x="160" y="28" text-anchor="middle" class="impact">'+step[2]+'</text><text x="160" y="206" text-anchor="middle" font-size="24" class="spark">'+step[3]+'</text></svg></article>'+(i<3?'<button class="arrow" type="button" aria-label="次のコマへ">→</button>':'' )).join("")+'</div></section>').join("");
+document.querySelectorAll(".action").forEach(section=>{const cards=[...section.querySelectorAll(".panel")];const arrows=[...section.querySelectorAll(".arrow")];const go=i=>cards[i+1]?.scrollIntoView({behavior:"smooth",block:"nearest",inline:"center"});arrows.forEach((b,i)=>b.addEventListener("click",()=>go(i)));cards.forEach((c,i)=>{c.addEventListener("click",()=>go(i));c.addEventListener("keydown",e=>{if(e.key==="Enter"||e.key===" "){e.preventDefault();go(i)}})});});
+
+const tabs=[...document.querySelectorAll("[data-view]")];
+const views={signup:document.getElementById("signup-view"),muse:document.getElementById("muse-view")};
+function showView(name){for(const [key,view] of Object.entries(views))view.hidden=key!==name;tabs.forEach(tab=>tab.setAttribute("aria-selected",String(tab.dataset.view===name)));history.replaceState(null,"",name==="muse"?"#muse":"#github");}
+tabs.forEach(tab=>tab.addEventListener("click",()=>showView(tab.dataset.view)));
+if(location.hash==="#muse")showView("muse");
+</script>
+</body></html>
