@@ -10,12 +10,12 @@
 main{width:min(960px,100%);margin:auto;padding:clamp(20px,5vw,48px) 18px 40px}
 header{text-align:center;margin-bottom:24px}h1{font-size:clamp(2rem,6vw,3.7rem);line-height:1.15;margin:0 0 12px;letter-spacing:.02em}
 .lead{font-size:clamp(1rem,2.5vw,1.3rem);margin:0;color:#555}
-.comic{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
-.panel{background:var(--paper);border:3px solid var(--ink);border-radius:14px;overflow:hidden;box-shadow:4px 4px 0 var(--ink)}
+.comic{display:flex;align-items:center;gap:0;overflow-x:auto;overscroll-behavior-x:contain;scroll-snap-type:x mandatory;padding:10px 8px 18px;scrollbar-width:thin}
+.panel{flex:0 0 min(78vw,620px);background:var(--paper);border:3px solid var(--ink);border-radius:14px;overflow:hidden;box-shadow:4px 4px 0 var(--ink);scroll-snap-align:center}.flow-arrow{flex:0 0 64px;display:grid;place-items:center;color:var(--green);font-size:2.8rem;font-weight:900;line-height:1;text-shadow:1px 2px 0 #c8dfcb}
 .panel svg{display:block;width:100%;height:auto}.caption{font-weight:800;text-align:center;font-size:clamp(1rem,2.5vw,1.25rem);padding:10px 8px 14px;min-height:3.5em}
 .cta{text-align:center;margin:28px auto 12px}.button{display:inline-block;background:var(--green);color:white;text-decoration:none;font-weight:800;font-size:1.2rem;padding:15px 28px;border-radius:999px;box-shadow:0 4px 0 #176329}.button:hover{filter:brightness(1.08);transform:translateY(-1px)}
 .note{text-align:center;color:#666;font-size:.9rem;line-height:1.7;margin:18px auto 0;max-width:650px}
-@media(max-width:560px){.comic{grid-template-columns:1fr;gap:12px}.panel svg{max-height:230px}}
+@media(max-width:560px){.panel{flex-basis:84vw}.flow-arrow{flex-basis:42px;font-size:2rem}.panel svg{max-height:260px}}
 </style>
 </head>
 <body>
@@ -36,6 +36,7 @@ header{text-align:center;margin-bottom:24px}h1{font-size:clamp(2rem,6vw,3.7rem);
 </svg>
 <div class="caption">① リンクをポン！<br>GitHubのページを開こう</div>
 </article>
+<div class="flow-arrow" aria-hidden="true">→</div>
 <article class="panel">
 <svg viewBox="0 0 440 250" role="img" aria-label="ユーザー名を考えて入力する">
 <rect width="440" height="250" fill="#fff0dc"/><path d="M45 45q0-18 18-18h314q18 0 18 18v145q0 18-18 18H63q-18 0-18-18z" fill="#fff" stroke="#20252b" stroke-width="6"/>
@@ -47,6 +48,7 @@ header{text-align:center;margin-bottom:24px}h1{font-size:clamp(2rem,6vw,3.7rem);
 </svg>
 <div class="caption">② ユーザー名を書こう！<br>自分の名前を決めるよ</div>
 </article>
+<div class="flow-arrow" aria-hidden="true">→</div>
 <article class="panel">
 <svg viewBox="0 0 440 250" role="img" aria-label="画面の案内にそって登録を進める">
 <rect width="440" height="250" fill="#e9f7e9"/><rect x="76" y="25" width="288" height="198" rx="13" fill="#fff" stroke="#20252b" stroke-width="6"/>
@@ -58,6 +60,7 @@ header{text-align:center;margin-bottom:24px}h1{font-size:clamp(2rem,6vw,3.7rem);
 </svg>
 <div class="caption">③ あとは画面の案内どおり<br>必要な項目を入力するだけ</div>
 </article>
+<div class="flow-arrow" aria-hidden="true">→</div>
 <article class="panel">
 <svg viewBox="0 0 440 250" role="img" aria-label="登録ができてうれしい">
 <rect width="440" height="250" fill="#f1eaff"/><path d="M220 35l14 34 37-13-13 37 34 14-34 14 13 37-37-13-14 34-14-34-37 13 13-37-34-14 34-14-13-37 37 13z" fill="#ffd76a" stroke="#20252b" stroke-width="5"/>
