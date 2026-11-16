@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Museでゲームをつくろう</title>
+<title>アクションプラン</title>
 <style>
 :root{color-scheme:light;--ink:#20252b;--green:#238636;--paper:#fffdf7}
 *{box-sizing:border-box}
@@ -24,10 +24,10 @@ h1{font-size:clamp(2rem,6vw,3.5rem);line-height:1.15;margin:0 0 12px}
 <body>
 <main>
 <header>
-<h1>Museでゲームをつくろう</h1>
+<h1>アクションプラン</h1>
 
 </header>
-<section class="comic" aria-label="Museでゲームをつくる3ステップ">
+<section class="comic" aria-label="3つのアクションプラン">
 <article class="panel">
 <svg viewBox="0 0 440 250" role="img" aria-label="Museをはじめる">
 <rect width="440" height="250" fill="#e9f2ff"/>
@@ -40,7 +40,7 @@ h1{font-size:clamp(2rem,6vw,3.5rem);line-height:1.15;margin:0 0 12px}
 <path d="M108 153h14m-7-7v14" stroke="#fff" stroke-width="4" stroke-linecap="round"/>
 <text x="145" y="160" font-size="21" font-weight="800" fill="#20252b">Connectors</text>
 </svg>
-<div class="caption">① Museをはじめよう</div>
+<div class="caption"><strong>Action 1</strong><br>目的：Museで制作を始める<br>行動：Museを開く</div>
 </article>
 <button class="flow-arrow" type="button" aria-label="次のコマへ">→</button>
 <article class="panel">
@@ -54,7 +54,7 @@ h1{font-size:clamp(2rem,6vw,3.5rem);line-height:1.15;margin:0 0 12px}
 <text x="180" y="144" font-size="25" font-weight="900" fill="#20252b">GitHub</text>
 <path d="M315 119l10 10-10 10" fill="none" stroke="#238636" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
 </svg>
-<div class="caption">② GitHubを連携しよう</div>
+<div class="caption"><strong>Action 2</strong><br>目的：ゲームを保存・管理する<br>行動：GitHubを連携する</div>
 </article>
 <button class="flow-arrow" type="button" aria-label="次のコマへ">→</button>
 <article class="panel">
@@ -67,21 +67,17 @@ h1{font-size:clamp(2rem,6vw,3.5rem);line-height:1.15;margin:0 0 12px}
 <rect x="125" y="158" width="190" height="42" rx="21" fill="#238636"/>
 <text x="220" y="185" text-anchor="middle" font-size="17" font-weight="800" fill="#fff">Authorize</text>
 </svg>
-<div class="caption">③ ゲームをつくってもらおう</div>
+<div class="caption"><strong>Action 3</strong><br>目的：遊べるゲームを完成させる<br>行動：Museにゲーム制作を依頼する</div>
 </article>
-<button class="flow-arrow" type="button" aria-label="次のコマへ">→</button>
-<article class="panel">
-<svg viewBox="0 0 440 250" role="img" aria-label="ゲームづくり完了">
-<rect width="440" height="250" fill="#f1eaff"/>
-<circle cx="220" cy="112" r="66" fill="#238636" stroke="#20252b" stroke-width="5"/>
-<path d="M183 112l25 25 51-57" fill="none" stroke="#fff" stroke-width="13" stroke-linecap="round" stroke-linejoin="round"/>
-<path d="M75 75l12 18 22-4-13 18 11 18-21-5-13 17-1-22-20-9 20-8zM350 150l10 15 18-3-10 15 9 16-18-4-11 14-1-18-17-8 17-7z" fill="#ffd76a" stroke="#20252b" stroke-width="3"/>
-<text x="220" y="220" text-anchor="middle" font-size="22" font-weight="900" fill="#20252b">CONNECTED!</text>
-</svg>
-<div class="caption">ゲームづくりスタート！ 🎮</div>
-</article>
+
 </section>
 
 </main>
+<script>
+const steps=[...document.querySelectorAll(".panel")];
+function activate(i){if(i<steps.length-1){steps[i+1].scrollIntoView({behavior:"smooth",block:"nearest",inline:"center"});}else{steps[i].classList.toggle("done");}}
+steps.forEach((step,i)=>{step.tabIndex=0;step.setAttribute("role","button");step.setAttribute("aria-label",`Action ${i+1}を選択`);step.addEventListener("click",()=>activate(i));step.addEventListener("keydown",e=>{if(e.key==="Enter"||e.key===" "){e.preventDefault();activate(i);}});});
+document.querySelectorAll(".flow-arrow").forEach((arrow,i)=>arrow.addEventListener("click",()=>activate(i)));
+</script>
 </body>
 </html>
