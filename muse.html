@@ -16,8 +16,8 @@ h1{font-size:clamp(2rem,6vw,3.5rem);line-height:1.15;margin:0 0 12px}
 .panel{flex:0 0 min(78vw,620px);background:var(--paper);border:3px solid var(--ink);border-radius:14px;overflow:hidden;box-shadow:4px 4px 0 var(--ink);scroll-snap-align:center}
 .panel svg{display:block;width:100%;height:auto}
 .caption{font-weight:800;text-align:center;font-size:clamp(1rem,2.5vw,1.25rem);padding:10px 8px 14px;min-height:3.5em}
-.flow-arrow{flex:0 0 64px;display:grid;place-items:center;color:var(--green);font-size:2.8rem;font-weight:900;line-height:1}
-.note{text-align:center;color:#666;font-size:.92rem;line-height:1.7;margin:20px auto 0;max-width:700px}
+.flow-arrow{flex:0 0 64px;display:grid;place-items:center;color:var(--green);font-size:2.8rem;font-weight:900;line-height:1;border:0;background:transparent;cursor:pointer;animation:blink 1.15s infinite}
+.panel{cursor:pointer;transition:transform .18s,box-shadow .18s;animation:panelBlink 1.8s infinite}.panel:focus-visible,.flow-arrow:focus-visible{outline:4px solid #f0b429;outline-offset:5px}.panel:hover{transform:translateY(-4px);box-shadow:6px 8px 0 var(--ink)}@keyframes blink{0%,100%{opacity:1}50%{opacity:.25}}@keyframes panelBlink{0%,100%{border-color:var(--ink)}50%{border-color:var(--green)}}
 @media(max-width:560px){.panel{flex-basis:84vw}.flow-arrow{flex-basis:42px;font-size:2rem}}
 </style>
 </head>
@@ -25,7 +25,7 @@ h1{font-size:clamp(2rem,6vw,3.5rem);line-height:1.15;margin:0 0 12px}
 <main>
 <header>
 <h1>MuseとGitHubをつなごう</h1>
-<p class="lead">むずかしい設定は不要。コネクタでつなぐだけ！</p>
+
 </header>
 <section class="comic" aria-label="MuseとGitHubを連携する流れ">
 <article class="panel">
@@ -42,7 +42,7 @@ h1{font-size:clamp(2rem,6vw,3.5rem);line-height:1.15;margin:0 0 12px}
 </svg>
 <div class="caption">① Museで「Connectors」を開く</div>
 </article>
-<div class="flow-arrow" aria-hidden="true">→</div>
+<button class="flow-arrow" type="button" aria-label="次のコマへ">→</button>
 <article class="panel">
 <svg viewBox="0 0 440 250" role="img" aria-label="GitHubコネクタを選ぶ">
 <rect width="440" height="250" fill="#fff0dc"/>
@@ -56,7 +56,7 @@ h1{font-size:clamp(2rem,6vw,3.5rem);line-height:1.15;margin:0 0 12px}
 </svg>
 <div class="caption">② 一覧からGitHubを選ぶ</div>
 </article>
-<div class="flow-arrow" aria-hidden="true">→</div>
+<button class="flow-arrow" type="button" aria-label="次のコマへ">→</button>
 <article class="panel">
 <svg viewBox="0 0 440 250" role="img" aria-label="GitHub側で接続を許可する">
 <rect width="440" height="250" fill="#e9f7e9"/>
@@ -69,7 +69,7 @@ h1{font-size:clamp(2rem,6vw,3.5rem);line-height:1.15;margin:0 0 12px}
 </svg>
 <div class="caption">③ GitHubの画面で接続を許可</div>
 </article>
-<div class="flow-arrow" aria-hidden="true">→</div>
+<button class="flow-arrow" type="button" aria-label="次のコマへ">→</button>
 <article class="panel">
 <svg viewBox="0 0 440 250" role="img" aria-label="MuseとGitHubの接続完了">
 <rect width="440" height="250" fill="#f1eaff"/>
@@ -81,7 +81,7 @@ h1{font-size:clamp(2rem,6vw,3.5rem);line-height:1.15;margin:0 0 12px}
 <div class="caption">④ 完了！MuseからGitHubを使えるよ 🎉</div>
 </article>
 </section>
-<p class="note">表示名やボタンの場所はMuseのバージョンによって異なることがあります。接続先を確認し、GitHubの公式認可画面で内容を読んでから許可してください。必要な権限だけを選びましょう。</p>
+
 </main>
 </body>
 </html>
